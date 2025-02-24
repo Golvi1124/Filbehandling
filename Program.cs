@@ -3,9 +3,10 @@
 using static Filbehandling.Classes.Pretty; // to be able to use colors for teminal printouts
 
 using Filbehandling.Classes;
+
 class Program
 {
-    static void Main()
+    static async Task Main()
     {
         string menuSelection = "";
 
@@ -39,7 +40,8 @@ class Program
                     break;
 
                 case "3":
-
+                    
+                    await ApiHelper.Run();
                     break;
 
                 case "4":
