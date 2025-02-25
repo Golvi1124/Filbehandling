@@ -1,7 +1,6 @@
 ﻿// Playing around with menu selection, so each task is easier to access
 
 using static Filbehandling.Classes.Pretty; // to be able to use colors for teminal printouts
-
 using Filbehandling.Classes;
 
 class Program
@@ -15,9 +14,12 @@ class Program
             Magenta("\nSelect a task to perform:");
             Console.WriteLine("1. File Handling");
             Console.WriteLine("2. JSON Processing");
-            Console.WriteLine("3. REST API Data Retrieval");
-            // make differet sub options?
-            Console.WriteLine("4. Exit");
+            Console.WriteLine();
+            Console.WriteLine("REST API Data Retrieval:");
+            Console.WriteLine("3. Basic info about Harry Potter Houses");
+            Console.WriteLine("4. Retrive information about specific house");
+            Console.WriteLine();
+            Console.WriteLine("5. Exit");
 
             string? input = Console.ReadLine();
             if (input != null)
@@ -40,11 +42,15 @@ class Program
                     break;
 
                 case "3":
-                    
+
                     await ApiHelper.Run();
                     break;
 
                 case "4":
+                    await ApiHelper.SelectHouse();
+                    break;
+
+                case "5":
                     Red("Exiting program.");
                     break;
 
@@ -52,6 +58,6 @@ class Program
                     Red("Invalid selection. Please try again.");
                     break;
             }
-        } while (menuSelection != "4");
+        } while (menuSelection != "5");
     }
 }
